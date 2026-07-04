@@ -22,6 +22,11 @@
         <ul>
             <li><a href="./index.html">Inicio</a></li>
             <li><a href="./pages/contacto.html">Contacto</a></li>
+             <li>
+            <a href="./pages/carrito.html" class="carrito-icono"
+              >🛒<span id="contador-carrito">0</span></a
+            >
+          </li>
         </ul>
     </nav>
 </header>
@@ -34,48 +39,8 @@
     </p>
     <section>
         <h2 class="titulo-productos text-secondary">Nuestros productos</h2>
-        <div class="contenedor-tarjetas"> 
-
-            <article class="card text-dark">
-            <img src="./img/torta brownie.jpg" alt="brownie"/>
-            <h3>Brownie</h3>
-            <p>Brownie crema y dulce de leche</p>
-            <p>Precio: $20.000</p>
-            <button class="btn bg-secondary text-dark">
-                Agregar al carrito
-            </button>
-        </article>
-
-         <article class="card text-dark">
-            <img src="./img/budines.jpg" alt="budines"/>
-            <h3>Budines</h3>
-            <p>Budines de vainilla, chocolate y marmolado</p>
-            <p>Precio: $10.000</p>
-            <button class="btn bg-secondary text-dark">
-                Agregar al carrito
-            </button>
-        </article>
-
-         <article class="card text-dark">
-            <img src="./img/chocotorta.png" alt="chocotorta"/>
-            <h3>Chocotorta</h3>
-            <p>Chocotorta tamaño grande</p>
-            <p>Precio: $15.000</p>
-            <button class="btn bg-secondary text-dark">
-                Agregar al carrito
-            </button>
-        </article>
-
-         <article class="card text-dark">
-            <img src="./img/cookies.jpg" alt="cookies"/>
-            <h3>Cookies</h3>
-            <p>Cookies con chips de chocolate x 20</p>
-            <p>Precio: $10.000</p>
-            <button class="btn bg-secondary text-dark">
-                Agregar al carrito  
-        </article>
-    
-
+        <div id="contenedor-tarjetas" class="contenedor-tarjetas">
+          
         </div>
     </section>
     </main>
@@ -87,8 +52,9 @@
                 <li><img src="./img/Instagram.png" alt="logo de instagram"/></li>
                 
             </ul>
-        </nav>
+          </nav>
         </footer>
+        <script src="./js/index.js" type="module"></script>
     
-</body>
+ </body>
 </html>

@@ -47,11 +47,18 @@ h2{
 .btn {
     background-color: #f7c59f;
     color: #3a2c35;
-    border:none;
+    border: none;
     font-size: 1.6rem;
     font-weight: bold;
-    padding: 1.6 rem;
+    padding: 1.6rem;
     border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e0b45a;
+    transform: scale(1.05);
 }
 
 header,
@@ -205,7 +212,7 @@ footer .footer-list {
   padding: 1rem;
   border: 1px solid #2a1e35;
   border-radius: 0.5rem;
-  background-color: #ffffff; /* 🔥 clave */
+  background-color: #ffffff; 
   color: #2a1e35;
   outline: none;
   cursor: text;
@@ -216,7 +223,6 @@ footer .footer-list {
   resize: vertical;
    
 }
-
 
 @media (max-width: 600px) {
   header,

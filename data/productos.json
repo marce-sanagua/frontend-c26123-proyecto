@@ -1,0 +1,27 @@
+[
+  {
+    "id": "1",
+    "nombre": "Brownie",
+    "precio": 20000,
+    "img": "img/torta brownie.jpg"
+  },
+  {
+    "id": "2",
+    "nombre": "Budines",
+    "precio": 10000,
+    "img": "img/budines.jpg"
+  },
+  {
+    "id": "3",
+    "nombre": "Chocotorta",
+    "precio": 15000,
+    "img": "img/chocotorta.png"
+  },
+  {
+    "id": "4",
+    "nombre": "Cookies",
+    "precio": 10000,
+    "img": "img/cookies.jpg"
+  }
+  
+]
