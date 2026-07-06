@@ -12,7 +12,6 @@ export const agregarAlCarrito = (producto) => {
 
   guardarCarrito(carrito);
 
-  
   actualizarContador(carrito);
   mostrarMensaje("Producto agregado 🎉");
 };
@@ -20,16 +19,28 @@ export const agregarAlCarrito = (producto) => {
 export const eliminarProducto = (indice) => {
   const carrito = obtenerCarrito();
   carrito.splice(indice, 1);
-  
+
   guardarCarrito(carrito);
 
-  
   actualizarContador(carrito);
   mostrarMensaje("Producto eliminado ✅");
+};
+
+export const eliminarProductoPorId = (id) => {
+  const carrito = obtenerCarrito();
+
+  const indice = carrito.findIndex((producto) => producto.id === id);
+
+  if (indice !== -1) {
+    carrito.splice(indice, 1);
+    guardarCarrito(carrito);
+    actualizarContador(carrito);
+    mostrarMensaje("Producto eliminado ✅");
+  }
 };
 
 export const vaciarCarrito = () => {
   vaciarCarritoStorage();
   actualizarContador([]);
-  mostrarMensaje("Carrito vaciado");
+  mostrarMensaje("Carrito vaciado ✅");
 };

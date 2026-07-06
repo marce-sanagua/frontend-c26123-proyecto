@@ -1,6 +1,20 @@
 import { obtenerCarrito } from "./storage.js";
-import { eliminarProducto, vaciarCarrito } from "./funcionesCarrito.js";
-import { actualizarContador } from "./ui.js";
+import { eliminarProductoPorId, vaciarCarrito } from "./funcionesCarrito.js";
+import { actualizarContador, mostrarTotal } from "./ui.js";
+
+const agruparProductos = (carrito) => {
+  const agrupado = {};
+
+  carrito.forEach((producto) => {
+    if (agrupado[producto.id]) {
+      agrupado[producto.id].cantidad += 1;
+    } else {
+      agrupado[producto.id] = { ...producto, cantidad: 1 };
+    }
+  });
+
+  return Object.values(agrupado);
+};
 
 const renderizarCarrito = () => {
   const carrito = obtenerCarrito();
@@ -18,10 +32,13 @@ const renderizarCarrito = () => {
     mensaje.textContent = "Tu carrito esta vacio 😕";
 
     contenedor.appendChild(mensaje);
+    mostrarTotal(carrito);
     return;
   }
 
-  carrito.forEach((producto, index) => {
+  const productosAgrupados = agruparProductos(carrito);
+
+  productosAgrupados.forEach((producto) => {
     const tarjeta = document.createElement("article");
     tarjeta.classList.add("card");
 
@@ -35,19 +52,23 @@ const renderizarCarrito = () => {
     const precio = document.createElement("p");
     precio.textContent = `$${producto.precio}`;
 
+    const cantidad = document.createElement("p");
+    cantidad.textContent = `Cantidad: ${producto.cantidad}`;
+
     const btnEliminar = document.createElement("button");
     btnEliminar.classList.add("btn");
     btnEliminar.classList.add("btn-eliminar-carrito");
     btnEliminar.textContent = "Eliminar producto";
 
     btnEliminar.addEventListener("click", () => {
-      eliminarProducto(index);
+      eliminarProductoPorId(producto.id);
       renderizarCarrito();
     });
 
     tarjeta.appendChild(img);
     tarjeta.appendChild(titulo);
     tarjeta.appendChild(precio);
+    tarjeta.appendChild(cantidad);
     tarjeta.appendChild(btnEliminar);
 
     contenedor.appendChild(tarjeta);
@@ -64,6 +85,7 @@ const renderizarCarrito = () => {
   });
 
   divAcciones.appendChild(btnVaciar);
+  mostrarTotal(carrito);
 };
 
 document.addEventListener("DOMContentLoaded", () => {
